@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: FlowableDemo2025
+logging:
+  level:
+    root: INFO
+mydatabase:
+  driver: com.mysql.cj.jdbc.Driver
+  username: root
+  passwd: rootroot
+  url: "jdbc:mysql://localhost:3306/flowablelearn?serverTimezone=UTC&characterEncoding=utf8"
+
