@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <process id="HolidayUI" name="HolidayUI" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="sid-0DA00895-F214-4053-AB17-127C413301A0" name="提交请假流程" flowable:assignee="user1" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-73BC086F-DF88-499B-8E8C-2BE480616371" name="总经理审批请假流程" flowable:assignee="user2" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-56CC8123-55C2-4458-B21E-1C35C6AB8677" sourceRef="sid-0DA00895-F214-4053-AB17-127C413301A0" targetRef="sid-73BC086F-DF88-499B-8E8C-2BE480616371"></sequenceFlow>
+    <endEvent id="sid-B83A0BAD-2F26-419B-8BE8-DBC96A56473E"></endEvent>
+    <sequenceFlow id="sid-8E294F11-FA1D-41FB-9329-ECD27157F853" sourceRef="sid-73BC086F-DF88-499B-8E8C-2BE480616371" targetRef="sid-B83A0BAD-2F26-419B-8BE8-DBC96A56473E"></sequenceFlow>
+    <sequenceFlow id="sid-69C13048-BC01-409A-9213-B88CB0E9CF2F" sourceRef="startEvent1" targetRef="sid-0DA00895-F214-4053-AB17-127C413301A0"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HolidayUI">
+    <bpmndi:BPMNPlane bpmnElement="HolidayUI" id="BPMNPlane_HolidayUI">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="90.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-0DA00895-F214-4053-AB17-127C413301A0" id="BPMNShape_sid-0DA00895-F214-4053-AB17-127C413301A0">
+        <omgdc:Bounds height="80.0" width="100.0" x="240.0" y="125.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-73BC086F-DF88-499B-8E8C-2BE480616371" id="BPMNShape_sid-73BC086F-DF88-499B-8E8C-2BE480616371">
+        <omgdc:Bounds height="80.0" width="100.0" x="420.0" y="125.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-B83A0BAD-2F26-419B-8BE8-DBC96A56473E" id="BPMNShape_sid-B83A0BAD-2F26-419B-8BE8-DBC96A56473E">
+        <omgdc:Bounds height="28.0" width="28.0" x="585.0" y="151.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-56CC8123-55C2-4458-B21E-1C35C6AB8677" id="BPMNEdge_sid-56CC8123-55C2-4458-B21E-1C35C6AB8677" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="339.9499999999431" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-8E294F11-FA1D-41FB-9329-ECD27157F853" id="BPMNEdge_sid-8E294F11-FA1D-41FB-9329-ECD27157F853" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="519.95" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="585.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-69C13048-BC01-409A-9213-B88CB0E9CF2F" id="BPMNEdge_sid-69C13048-BC01-409A-9213-B88CB0E9CF2F" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="119.94999946593475" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="240.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

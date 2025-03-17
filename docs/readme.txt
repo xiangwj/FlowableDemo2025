@@ -9,3 +9,15 @@ DROP DATABASE flowablelearn;
 CREATE DATABASE flowablelearn
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
+
+
+flowable下载地址
+https://github.com/flowable/flowable-engine/releases
+用的是6.7.2
+放到tomcat里
+http://localhost:8080/flowable-ui/
+用户名/密码：admin/test
+tomcat启动有乱码，需要把conf/logging.properties java.util.logging.ConsoleHandler.encoding = GBK
+
+
+
