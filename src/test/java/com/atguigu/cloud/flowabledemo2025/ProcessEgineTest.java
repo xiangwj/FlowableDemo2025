@@ -40,7 +40,6 @@ public class ProcessEgineTest {
      */
     @Test
     public void processEngine2() {
-        //读取flowable.cfg.xml，把flowablelearn1下的表全部建立起来
         ProcessEngine defaultProcessEngine = ProcessEngines.getDefaultProcessEngine();
         System.out.println("defaultProcessEngine = " + defaultProcessEngine);
     }
@@ -50,7 +49,6 @@ public class ProcessEgineTest {
      */
     @Test
     public void processEngine3() {
-        //读取application.yml，把flowablelearn1下的表全部建立起来
         ProcessEngineConfiguration configuration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("selfflowable.cfg.xml");
         ProcessEngine processEngine = configuration.buildProcessEngine();
         System.out.println("defaultProcessEngine = " + processEngine);
