@@ -31,7 +31,6 @@ public class Test05 {
         RepositoryService repositoryService = processEngine.getRepositoryService();
         DeploymentBuilder deployment = repositoryService.createDeployment();
         Deployment deploy = deployment.addClasspathResource("bpmnfiles/MyHoliday2.bpmn20.xml")
-                .key("MyHolidayKey2")//这个key只在deployment里有用
                 .name("test05请假流程")
                 .deploy();
         log.info("deploy.getId():" + deploy.getId());
