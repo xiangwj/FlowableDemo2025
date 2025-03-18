@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <process id="MyHolidayKey" name="MyHoliday" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="sid-BEBB6ABD-B59B-48B4-A3FB-D5E260F905D9" name="申请人提交" flowable:formFieldValidation="true">
+      <extensionElements>
+        <flowable:taskListener event="create" class="org.flowable.listener.MyTaskListener"></flowable:taskListener>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-B6B6CE52-8542-41D7-9712-4F0203BE99F1" sourceRef="startEvent1" targetRef="sid-BEBB6ABD-B59B-48B4-A3FB-D5E260F905D9"></sequenceFlow>
+    <userTask id="sid-ECAD81CB-E9A9-411A-A885-60CA4882E778" name="经理审批" flowable:formFieldValidation="true">
+      <extensionElements>
+        <flowable:taskListener event="create" class="org.flowable.listener.MyTaskListener"></flowable:taskListener>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-79B03E1B-91BF-4E09-B709-899DD8EA46F2" sourceRef="sid-BEBB6ABD-B59B-48B4-A3FB-D5E260F905D9" targetRef="sid-ECAD81CB-E9A9-411A-A885-60CA4882E778"></sequenceFlow>
+    <endEvent id="sid-798C4EF5-E1C0-4DD6-87E3-34CBA072DF81"></endEvent>
+    <sequenceFlow id="sid-B19EF343-B098-4BE3-B7E5-DFAB99513D41" sourceRef="sid-ECAD81CB-E9A9-411A-A885-60CA4882E778" targetRef="sid-798C4EF5-E1C0-4DD6-87E3-34CBA072DF81"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_MyHolidayKey">
+    <bpmndi:BPMNPlane bpmnElement="MyHolidayKey" id="BPMNPlane_MyHolidayKey">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-BEBB6ABD-B59B-48B4-A3FB-D5E260F905D9" id="BPMNShape_sid-BEBB6ABD-B59B-48B4-A3FB-D5E260F905D9">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-ECAD81CB-E9A9-411A-A885-60CA4882E778" id="BPMNShape_sid-ECAD81CB-E9A9-411A-A885-60CA4882E778">
+        <omgdc:Bounds height="80.0" width="100.0" x="315.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-798C4EF5-E1C0-4DD6-87E3-34CBA072DF81" id="BPMNShape_sid-798C4EF5-E1C0-4DD6-87E3-34CBA072DF81">
+        <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-79B03E1B-91BF-4E09-B709-899DD8EA46F2" id="BPMNEdge_sid-79B03E1B-91BF-4E09-B709-899DD8EA46F2" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="264.9499999999581" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="315.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B19EF343-B098-4BE3-B7E5-DFAB99513D41" id="BPMNEdge_sid-B19EF343-B098-4BE3-B7E5-DFAB99513D41" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="414.95000000000005" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="440.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="440.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B6B6CE52-8542-41D7-9712-4F0203BE99F1" id="BPMNEdge_sid-B6B6CE52-8542-41D7-9712-4F0203BE99F1" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="129.94340692927761" y="177.55019845363262"></omgdi:waypoint>
+        <omgdi:waypoint x="164.99999999999906" y="176.4985"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

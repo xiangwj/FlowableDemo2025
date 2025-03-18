@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.*;
 import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
 import org.flowable.engine.repository.Deployment;
+import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.TaskQuery;
@@ -74,5 +75,32 @@ public class Test03 {
             log.info("task.getId():"+task.getId());
             taskService.complete(task.getId());
         });
+    }
+
+    /***
+     * 测试激活或挂起
+     */
+    @Test
+    public void testSuspendProcess(){
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId("HolidayUI:4:30004").singleResult();
+        if(processDefinition.isSuspended()){
+            log.info("激活流程:"+processDefinition.getId()+"-"+processDefinition.getName());
+            repositoryService.activateProcessDefinitionById(processDefinition.getId());
+        }else{
+            log.info("挂起流程:"+processDefinition.getId()+"-"+processDefinition.getName());
+            repositoryService.suspendProcessDefinitionById(processDefinition.getId());
+
+        }
+    }
+
+    /**
+     * 挂起的流程启动会报错
+     */
+    @Test
+    public void testRunSuspendProcess(){
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        runtimeService.startProcessInstanceById("HolidayUI:4:30004");
+
     }
 }
