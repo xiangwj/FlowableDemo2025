@@ -1,6 +1,21 @@
 spring:
   application:
     name: FlowableDemo2025
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/flowablelearn20?serverTimezone=UTC&nullCatalogMeansCurrent=true
+    username: root
+    password: rootroot
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHiariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
 logging:
   level:
     root: INFO
@@ -9,4 +24,8 @@ mydatabase:
   username: root
   passwd: rootroot
   url: "jdbc:mysql://localhost:3306/flowablelearn?serverTimezone=UTC&characterEncoding=utf8"
-
+flowable:
+  async-executor-activate: false
+  database-schema-update: true
+server:
+  port: 8082
