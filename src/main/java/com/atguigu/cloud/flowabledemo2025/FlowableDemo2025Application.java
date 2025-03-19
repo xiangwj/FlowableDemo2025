@@ -6,9 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class FlowableDemo2025Application {
-
     public static void main(String[] args) {
         SpringApplication.run(FlowableDemo2025Application.class, args);
     }
-
 }
