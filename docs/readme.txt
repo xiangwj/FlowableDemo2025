@@ -19,5 +19,9 @@ http://localhost:8080/flowable-ui/
 用户名/密码：admin/test
 tomcat启动有乱码，需要把conf/logging.properties java.util.logging.ConsoleHandler.encoding = GBK
 
+springboot自动部署
+放在resource/processes/下的流程定义
+
+
 
 
