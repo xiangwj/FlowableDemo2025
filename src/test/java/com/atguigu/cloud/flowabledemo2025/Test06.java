@@ -9,12 +9,12 @@ import org.flowable.task.api.TaskQuery;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@SpringBootApplication
+@SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class Test06 {
@@ -58,36 +58,39 @@ public class Test06 {
         TaskQuery taskQuery = taskService.createTaskQuery();
         Task task = taskQuery.processDefinitionKey("businessTrip").taskAssignee("zhangsan").singleResult();
         Map<String, Object> variables = task.getProcessVariables();
-        variables.put("num",2);
+        variables.put("num", 2);
         taskService.complete(task.getId(), variables);
     }
+
     /**
-     *根据Task编号来更新流程局部变量
-     * */
+     * 根据Task编号来更新流程局部变量
+     */
     @Test
     public void testUpdateVariables() {
         TaskService taskService = processEngine.getTaskService();
         TaskQuery taskQuery = taskService.createTaskQuery();
         Task task = taskQuery.processDefinitionKey("businessTrip").taskAssignee("lisi").singleResult();
         Map<String, Object> variables = task.getProcessVariables();
-        variables.put("num",5);
-        taskService.setVariablesLocal(task.getId(),  variables);
+        variables.put("num", 5);
+        taskService.setVariablesLocal(task.getId(), variables);
     }
+
     /**
-     *根据Task编号来更新流程全局变量
-     * */
+     * 根据Task编号来更新流程全局变量
+     */
     @Test
     public void testUpdateVariablesGoable() {
         TaskService taskService = processEngine.getTaskService();
         TaskQuery taskQuery = taskService.createTaskQuery();
         Task task = taskQuery.processDefinitionKey("businessTrip").taskAssignee("lisi").singleResult();
         Map<String, Object> variables = task.getProcessVariables();
-        variables.put("num",6);
-        taskService.setVariables(task.getId(),  variables);
+        variables.put("num", 6);
+        taskService.setVariables(task.getId(), variables);
     }
+
     /**
-     *根据Task编号来更新流程全局变量
-     * */
+     * 根据Task编号来更新流程全局变量
+     */
     @Test
     public void testComplete() {
         TaskService taskService = processEngine.getTaskService();

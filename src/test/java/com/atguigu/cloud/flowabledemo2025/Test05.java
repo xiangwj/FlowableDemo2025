@@ -9,12 +9,12 @@ import org.flowable.task.api.Task;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * 加上tasklistener
  */
-@SpringBootApplication
+@SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class Test05 {
@@ -37,6 +37,7 @@ public class Test05 {
         log.info("deploy.getKey():" + deploy.getKey());
         log.info("deploy.getName():" + deploy.getName());
     }
+
     @Test
     public void TestRunProcess() {
         RuntimeService runtimeService = processEngine.getRuntimeService();
@@ -45,14 +46,16 @@ public class Test05 {
         log.info("myHolidayKey2.getName():" + myHolidayKey2.getName());
 
     }
+
     @Test
-    public void testTaskXiaoMin(){
+    public void testTaskXiaoMin() {
         TaskService taskService = processEngine.getTaskService();
         Task xiaomintask = taskService.createTaskQuery().taskAssignee("小明").singleResult();
         taskService.complete(xiaomintask.getId());
     }
+
     @Test
-    public void testTaskXiaoLi(){
+    public void testTaskXiaoLi() {
         TaskService taskService = processEngine.getTaskService();
         Task xiaomintask = taskService.createTaskQuery().taskAssignee("小李").singleResult();
         taskService.complete(xiaomintask.getId());

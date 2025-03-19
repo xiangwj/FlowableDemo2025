@@ -85,40 +85,43 @@ public class Test4SetupEn {
         log.info("ActivityId" + processInstance.getActivityId());
 
     }
+
     @Test
-    public void testQueryTask(){
+    public void testQueryTask() {
         TaskService taskService = processEngine.getTaskService();
         TaskQuery taskQuery = taskService.createTaskQuery();
         taskQuery.processDefinitionKey("holidayRequest").taskAssignee("zhangsan");
         List<Task> tasks = taskQuery.list();
-        tasks.stream().forEach(task->{
+        tasks.stream().forEach(task -> {
             log.info("task.getId():" + task.getId());
             log.info("task.getName():" + task.getName());
             log.info("task.getAssignee:" + task.getAssignee());
         });
     }
+
     /**
      * 完成任务
      */
     @Test
-    public void testDoTask(){
+    public void testDoTask() {
         TaskService taskService = processEngine.getTaskService();
         TaskQuery taskQuery = taskService.createTaskQuery();
         taskQuery.processDefinitionKey("holidayRequest").taskAssignee("zhangsan");
         List<Task> tasks = taskQuery.list();
         HashMap<String, Object> variables = new HashMap<>();
-        variables.put("approved",false);
-        tasks.stream().forEach(task->{
-            taskService.complete(task.getId(),variables);
+        variables.put("approved", false);
+        tasks.stream().forEach(task -> {
+            taskService.complete(task.getId(), variables);
         });
     }
+
     @Test
-    public void testHistory(){
+    public void testHistory() {
         HistoryService historyService = processEngine.getHistoryService();
         HistoricActivityInstanceQuery historicActivityInstanceQuery = historyService.createHistoricActivityInstanceQuery();
         List<HistoricActivityInstance> list = historicActivityInstanceQuery.processDefinitionId("holidayRequest:1:3").finished().orderByHistoricActivityInstanceEndTime().asc().list();
-        list.forEach(instance->{
-            log.info(instance.getActivityName()+":"+instance.getAssignee()+":"+instance.getActivityId()+":"+instance.getDurationInMillis());
+        list.forEach(instance -> {
+            log.info(instance.getActivityName() + ":" + instance.getAssignee() + ":" + instance.getActivityId() + ":" + instance.getDurationInMillis());
         });
 
     }

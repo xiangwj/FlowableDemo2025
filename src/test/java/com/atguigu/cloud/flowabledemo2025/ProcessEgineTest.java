@@ -25,6 +25,7 @@ public class ProcessEgineTest {
     String databaseUrl;
     ProcessEngineConfiguration configuration = null;
     ProcessEngine processEngine;
+
     @BeforeAll
     public void setUp() {
         configuration = new StandaloneProcessEngineConfiguration();
@@ -35,8 +36,9 @@ public class ProcessEgineTest {
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
         processEngine = configuration.buildProcessEngine();
     }
+
     /**
-     *读取flowable.cfg.xml，把flowablelearn1下的表全部建立起来
+     * 读取flowable.cfg.xml，把flowablelearn1下的表全部建立起来
      */
     @Test
     public void processEngine2() {

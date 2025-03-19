@@ -11,14 +11,14 @@ import org.flowable.task.api.Task;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashMap;
 
 /***
  * 组和用户
  */
-@SpringBootApplication
+@SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class TestGroup {

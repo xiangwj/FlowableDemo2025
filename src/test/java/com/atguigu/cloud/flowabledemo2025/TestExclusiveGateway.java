@@ -9,11 +9,11 @@ import org.flowable.task.api.TaskQuery;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Map;
 
-@SpringBootApplication
+@SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class TestExclusiveGateway {
